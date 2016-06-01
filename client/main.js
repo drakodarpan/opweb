@@ -1,11 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { Messages } from '../import/api/messages.js';
 
-console.log(Messages.find({}).count());
-
-Messages.insert({ content: 'Hola mundo' });
-
-console.log( Messages.findOne({}) );
+import "../import/ui/components/messages.js";
+import "../import/ui/components/message_item.js";
+import "../import/ui/components/new_message.js";
 
 Meteor.subscribe("messages",{
     onReady: function(){
@@ -13,3 +11,16 @@ Meteor.subscribe("messages",{
         console.log(Messages.find({}).count());
     }
 });
+
+
+// saveMessages.call({
+//   content: 'como mola Meteor' ,
+//   date: new Date()
+// },(err, res) => {
+//     if(err){
+//         alert(err);
+//     } else {
+//         console.log("Mensaje guardado con Exito!!!");
+//     }
+// });
+
